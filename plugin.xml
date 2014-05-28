@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+           id="com.codexan.echo"
+      version="0.1.0">
+    <name>Echo</name>
+    <description>Sample PhoneGap Echo Plugin</description>
+    <license>MIT</license>
+    <keywords>phonegap,echo</keywords> 
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Echo">
+                <param name="android-package" value="com.codexan.echo.Echo"/>
+            </feature>
+        </config-file>
+ 
+        <source-file src="src/android/Echo.java" target-dir="src/com/codexan/echo" />      
+     </platform>          
+</plugin>
