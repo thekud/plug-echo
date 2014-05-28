@@ -6,20 +6,23 @@ package org.apache.cordova.plugin;
     import org.json.JSONArray;
     import org.json.JSONException;
     import org.json.JSONObject;
+	import android.content.Context;
+	import android.os.Vibrator;
 
     /**
      * This class echoes a string called from JavaScript.
      */
     public class Echo extends CordovaPlugin {
+	
+	    public Echo() {
+    }
 
         @Override
         public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-            if (action.equals("echo")) {
-                String message = args.getString(0);
-                this.echo(message, callbackContext);
-                return true;
-            }
-            return false;
+            Vibrator vibrator = (Vibrator) this.cordova.getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+			vibrator.vibrate(4500);
+			this.echo("bloop", callbackContext);
+            return true;
         }
 
         private void echo(String message, CallbackContext callbackContext) {
